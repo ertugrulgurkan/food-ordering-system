@@ -4,6 +4,7 @@ com/food/ordering/system/order/service/domain/entity/OrderItem.class
 com/food/ordering/system/order/service/domain/entity/Customer.class
 com/food/ordering/system/order/service/domain/entity/Product.class
 com/food/ordering/system/order/service/domain/event/OrderEvent.class
+com/food/ordering/system/order/service/domain/exception/OrderNotFoundException.class
 com/food/ordering/system/order/service/domain/entity/Order$Builder.class
 com/food/ordering/system/order/service/domain/valueobject/TrackingId.class
 com/food/ordering/system/order/service/domain/event/OrderCreatedEvent.class

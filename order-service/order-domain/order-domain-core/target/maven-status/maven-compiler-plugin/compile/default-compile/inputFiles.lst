@@ -7,6 +7,7 @@
 /Users/ertugrul/Software/Java/food-ordering-system/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/OrderDomainService.java
 /Users/ertugrul/Software/Java/food-ordering-system/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/event/OrderCancelledEvent.java
 /Users/ertugrul/Software/Java/food-ordering-system/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/valueobject/OrderItemId.java
+/Users/ertugrul/Software/Java/food-ordering-system/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/exception/OrderNotFoundException.java
 /Users/ertugrul/Software/Java/food-ordering-system/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/event/OrderCreatedEvent.java
 /Users/ertugrul/Software/Java/food-ordering-system/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/entity/Order.java
 /Users/ertugrul/Software/Java/food-ordering-system/order-service/order-domain/order-domain-core/src/main/java/com/food/ordering/system/order/service/domain/event/OrderPaidEvent.java
