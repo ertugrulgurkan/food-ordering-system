@@ -22,4 +22,4 @@ public class PaymentResponse {
     private Instant createdAt;
     private PaymentStatus paymentStatus;
     private List<String> failureMessages;
- }
+}

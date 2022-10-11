@@ -46,7 +46,7 @@ public class OrderDataMapper {
                 .message(message).build();
     }
 
-    public TrackOrderResponse orderToTrackOrderResponse(Order order){
+    public TrackOrderResponse orderToTrackOrderResponse(Order order) {
         return TrackOrderResponse.builder()
                 .orderStatus(order.getOrderStatus())
                 .orderTrackingId(order.getTrackingId().getValue())

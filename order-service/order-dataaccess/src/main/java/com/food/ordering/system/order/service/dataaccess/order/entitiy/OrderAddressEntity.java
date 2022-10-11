@@ -19,7 +19,7 @@ public class OrderAddressEntity {
     private UUID id;
 
     @OneToOne
-    @JoinColumn(name="ORDER_ID")
+    @JoinColumn(name = "ORDER_ID")
     private OrderEntity order;
 
     private String street;

@@ -25,7 +25,7 @@ public class OrderCreateCommandHandler {
         this.orderCreatedPaymentRequestedMessagePublisher = orderCreatedPaymentRequestedMessagePublisher;
     }
 
-    public CreateOrderResponse createOrder(CreateOrderCommand createOrderCommand){
+    public CreateOrderResponse createOrder(CreateOrderCommand createOrderCommand) {
         OrderCreatedEvent orderCreatedEvent = orderCreateHelper.persistOrder(createOrderCommand);
         orderCreatedPaymentRequestedMessagePublisher.publish(orderCreatedEvent);
         return orderDataMapper.orderToCreateOrderResponse(orderCreatedEvent.getOrder(), orderCreatedEvent.getOrder().getOrderStatus().name());
