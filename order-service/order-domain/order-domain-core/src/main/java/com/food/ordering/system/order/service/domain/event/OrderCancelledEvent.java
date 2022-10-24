@@ -9,4 +9,9 @@ public class OrderCancelledEvent extends OrderEvent {
     public OrderCancelledEvent(Order order, ZonedDateTime createdAt) {
         super(order, createdAt);
     }
+
+    @Override
+    public void fire() {
+
+    }
 }
