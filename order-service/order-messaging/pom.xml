@@ -12,9 +12,14 @@
     <artifactId>order-messaging</artifactId>
 
     <properties>
+
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.food.ordering.system</groupId>
+            <artifactId>order-application-service</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.food.ordering.system</groupId>
             <artifactId>kafka-producer</artifactId>
@@ -26,10 +31,6 @@
         <dependency>
             <groupId>com.food.ordering.system</groupId>
             <artifactId>kafka-model</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.food.ordering.system</groupId>
-            <artifactId>order-application-service</artifactId>
         </dependency>
     </dependencies>
 

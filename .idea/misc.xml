@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/restaurant-service/restaurant-domain/pom.xml" />
         <option value="$PROJECT_DIR$/restaurant-service/restaurant-dataaccess/pom.xml" />
         <option value="$PROJECT_DIR$/order-service/order-dataaccess/pom.xml" />
+        <option value="$PROJECT_DIR$/restaurant-service/restaurant-container/pom.xml" />
       </list>
     </option>
   </component>

@@ -40,7 +40,7 @@ public class PayOrderKafkaMessagePublisher implements OrderPaidRestaurantRequest
             kafkaProducer.send(orderServiceConfigData.getRestaurantApprovalRequestTopicName(),
                     orderId,
                     restaurantApprovalRequestAvroModel,
-                     orderKafkaMessageHelper
+                    orderKafkaMessageHelper
                             .getKafkaCallback(orderServiceConfigData.getRestaurantApprovalRequestTopicName(),
                                     restaurantApprovalRequestAvroModel,
                                     orderId,
