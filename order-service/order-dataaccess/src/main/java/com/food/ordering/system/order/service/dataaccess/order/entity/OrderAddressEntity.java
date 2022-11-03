@@ -1,4 +1,4 @@
-package com.food.ordering.system.order.service.dataaccess.order.entitiy;
+package com.food.ordering.system.order.service.dataaccess.order.entity;
 
 import lombok.*;
 
@@ -8,17 +8,16 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
-@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "order_address")
+@Entity
 public class OrderAddressEntity {
-
     @Id
     private UUID id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ORDER_ID")
     private OrderEntity order;
 
@@ -31,7 +30,7 @@ public class OrderAddressEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrderAddressEntity that = (OrderAddressEntity) o;
-        return Objects.equals(id, that.id);
+        return id.equals(that.id);
     }
 
     @Override

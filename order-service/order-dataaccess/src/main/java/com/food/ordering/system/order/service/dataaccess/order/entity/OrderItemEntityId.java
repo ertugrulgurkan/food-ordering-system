@@ -1,4 +1,4 @@
-package com.food.ordering.system.order.service.dataaccess.order.entitiy;
+package com.food.ordering.system.order.service.dataaccess.order.entity;
 
 import lombok.*;
 
@@ -7,12 +7,12 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderItemEntityId implements Serializable {
 
-    private long id;
+    private Long id;
     private OrderEntity order;
 
     @Override
@@ -20,7 +20,7 @@ public class OrderItemEntityId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OrderItemEntityId that = (OrderItemEntityId) o;
-        return id == that.id && order.equals(that.order);
+        return id.equals(that.id) && order.equals(that.order);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.food.ordering.system.order.service.dataaccess.order.entitiy;
+package com.food.ordering.system.order.service.dataaccess.order.entity;
 
 import lombok.*;
 
@@ -9,17 +9,15 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @IdClass(OrderItemEntityId.class)
-@Entity
 @Table(name = "order_items")
+@Entity
 public class OrderItemEntity {
-
     @Id
     private Long id;
-
     @Id
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ORDER_ID")

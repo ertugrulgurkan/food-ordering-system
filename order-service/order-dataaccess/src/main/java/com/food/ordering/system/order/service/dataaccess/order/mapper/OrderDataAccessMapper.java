@@ -1,9 +1,9 @@
 package com.food.ordering.system.order.service.dataaccess.order.mapper;
 
 import com.food.ordering.system.domain.valueobject.*;
-import com.food.ordering.system.order.service.dataaccess.order.entitiy.OrderAddressEntity;
-import com.food.ordering.system.order.service.dataaccess.order.entitiy.OrderEntity;
-import com.food.ordering.system.order.service.dataaccess.order.entitiy.OrderItemEntity;
+import com.food.ordering.system.order.service.dataaccess.order.entity.OrderAddressEntity;
+import com.food.ordering.system.order.service.dataaccess.order.entity.OrderEntity;
+import com.food.ordering.system.order.service.dataaccess.order.entity.OrderItemEntity;
 import com.food.ordering.system.order.service.domain.entity.Order;
 import com.food.ordering.system.order.service.domain.entity.OrderItem;
 import com.food.ordering.system.order.service.domain.entity.Product;
@@ -30,7 +30,7 @@ public class OrderDataAccessMapper {
                 .trackingId(order.getTrackingId().getValue())
                 .address(deliveryAddressToAddressEntity(order.getDeliveryAddress()))
                 .price(order.getPrice().getAmount())
-                .items(orderItemsToOrderItemsEntity(order.getItems()))
+                .items(orderItemsToOrderItemEntities(order.getItems()))
                 .orderStatus(order.getOrderStatus())
                 .failureMessages(order.getFailureMessages() != null ?
                         String.join(FAILURE_MESSAGE_DELIMITER, order.getFailureMessages()) : "")
@@ -63,37 +63,37 @@ public class OrderDataAccessMapper {
                         .orderItemId(new OrderItemId(orderItemEntity.getId()))
                         .product(new Product(new ProductId(orderItemEntity.getProductId())))
                         .price(new Money(orderItemEntity.getPrice()))
-                        .subTotal(new Money(orderItemEntity.getSubTotal()))
                         .quantity(orderItemEntity.getQuantity())
+                        .subTotal(new Money(orderItemEntity.getSubTotal()))
                         .build())
                 .collect(Collectors.toList());
-
     }
 
-    private List<OrderItemEntity> orderItemsToOrderItemsEntity(List<OrderItem> items) {
+    private StreetAddress addressEntityToDeliveryAddress(OrderAddressEntity address) {
+        return new StreetAddress(address.getId(),
+                address.getStreet(),
+                address.getPostalCode(),
+                address.getCity());
+    }
+
+    private List<OrderItemEntity> orderItemsToOrderItemEntities(List<OrderItem> items) {
         return items.stream()
                 .map(orderItem -> OrderItemEntity.builder()
                         .id(orderItem.getId().getValue())
-                        .price(orderItem.getPrice().getAmount())
                         .productId(orderItem.getProduct().getId().getValue())
+                        .price(orderItem.getPrice().getAmount())
                         .quantity(orderItem.getQuantity())
                         .subTotal(orderItem.getSubTotal().getAmount())
-                        .build()).collect(Collectors.toList());
+                        .build())
+                .collect(Collectors.toList());
     }
 
     private OrderAddressEntity deliveryAddressToAddressEntity(StreetAddress deliveryAddress) {
         return OrderAddressEntity.builder()
                 .id(deliveryAddress.getId())
-                .city(deliveryAddress.getCity())
                 .street(deliveryAddress.getStreet())
                 .postalCode(deliveryAddress.getPostalCode())
+                .city(deliveryAddress.getCity())
                 .build();
-    }
-
-    private StreetAddress addressEntityToDeliveryAddress(OrderAddressEntity orderAddressEntity) {
-        return new StreetAddress(orderAddressEntity.getId(),
-                orderAddressEntity.getStreet(),
-                orderAddressEntity.getPostalCode(),
-                orderAddressEntity.getCity());
     }
 }

@@ -1,4 +1,4 @@
-package com.food.ordering.system.order.service.dataaccess.order.entitiy;
+package com.food.ordering.system.order.service.dataaccess.order.entity;
 
 import com.food.ordering.system.domain.valueobject.OrderStatus;
 import lombok.*;
@@ -11,18 +11,17 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
-@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "orders")
+@Entity
 public class OrderEntity {
-
     @Id
     private UUID id;
     private UUID customerId;
-    private UUID trackingId;
     private UUID restaurantId;
+    private UUID trackingId;
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
@@ -30,7 +29,6 @@ public class OrderEntity {
 
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private OrderAddressEntity address;
-
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItemEntity> items;

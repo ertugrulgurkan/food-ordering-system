@@ -1,4 +1,4 @@
-package com.food.ordering.system.order.service.dataaccess.customer.entitiy;
+package com.food.ordering.system.order.service.dataaccess.customer.entity;
 
 import lombok.*;
 
@@ -9,11 +9,11 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
-@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "order_customer_m_view", schema = "customer")
+@Entity
 public class CustomerEntity {
 
     @Id

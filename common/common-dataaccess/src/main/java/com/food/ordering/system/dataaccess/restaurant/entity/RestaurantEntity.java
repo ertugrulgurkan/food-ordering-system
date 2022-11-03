@@ -1,4 +1,4 @@
-package com.food.ordering.system.order.service.dataaccess.restaurant.entitiy;
+package com.food.ordering.system.dataaccess.restaurant.entity;
 
 import lombok.*;
 
@@ -12,12 +12,12 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
-@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @IdClass(RestaurantEntityId.class)
 @Table(name = "order_restaurant_m_view", schema = "restaurant")
+@Entity
 public class RestaurantEntity {
 
     @Id
@@ -28,6 +28,7 @@ public class RestaurantEntity {
     private Boolean restaurantActive;
     private String productName;
     private BigDecimal productPrice;
+    private Boolean productAvailable;
 
     @Override
     public boolean equals(Object o) {

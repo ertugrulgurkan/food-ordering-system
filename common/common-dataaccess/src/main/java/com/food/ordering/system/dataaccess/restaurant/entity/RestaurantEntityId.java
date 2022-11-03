@@ -1,5 +1,4 @@
-package com.food.ordering.system.order.service.dataaccess.restaurant.entitiy;
-
+package com.food.ordering.system.dataaccess.restaurant.entity;
 
 import lombok.*;
 
@@ -9,10 +8,11 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RestaurantEntityId implements Serializable {
+
     private UUID restaurantId;
     private UUID productId;
 
